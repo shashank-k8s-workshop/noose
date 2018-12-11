@@ -1,0 +1,31 @@
+{
+  "name": "ninky",
+  "version": "0.1.0",
+  "description": "A nodejs service for k8s workshop",
+  "main": "server.js",
+  "repository": "git@github.com:shashanktomar/ninky.git",
+  "author": "Shashank",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "scripts": {
+    "watch": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js"
+  },
+  "dependencies": {
+    "restify": "^7.3.0",
+    "roarr": "^2.11.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "nodemon": "^1.18.8"
+  }
+}
