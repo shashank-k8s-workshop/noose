@@ -7,7 +7,7 @@ const version = process.env.npm_package_version;
 const port = process.env.PORT || 8080;
 
 const ping = async (req, res, next) => {
-    log({resouce: 'ping'}, 'invoked')
+    log({resource: 'ping'}, 'invoked')
     await doSomething(500);
     res.send({
         service,
