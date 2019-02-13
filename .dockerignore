@@ -3,3 +3,4 @@ dist
 .gitignore
 README.md
 yarn-error.log
+dive.log
