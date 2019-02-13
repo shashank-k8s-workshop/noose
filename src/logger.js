@@ -1,8 +1,9 @@
 import Roarr from 'roarr';
-import pjson from '../package.json'
+import pjson from '../package.json';
+import config from './config';
 
 export default Roarr.child({
-    service: 'ninky',
+    service: pjson.name,
     release: pjson.version,
-    logLevel: 'info'
+    logLevel: config.logLevel
 });

@@ -1,3 +1,3 @@
-# Ninky
+# Noose
 
 A bare minimal nodejs service for k8s workshop

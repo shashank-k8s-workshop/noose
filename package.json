@@ -1,9 +1,9 @@
 {
-  "name": "ninky",
+  "name": "noose",
   "version": "0.1.0",
   "description": "A nodejs service for k8s workshop",
   "main": "server.js",
-  "repository": "git@github.com:shashanktomar/ninky.git",
+  "repository": "git@github.com:shashanktomar/noose.git",
   "author": "Shashank",
   "license": "MIT",
   "private": false,
@@ -12,12 +12,15 @@
   },
   "scripts": {
     "watch": "nodemon --exec babel-node src/server.js",
-    "build": "babel src --out-dir dist",
+    "build": "rimraf dist && babel src --out-dir dist",
     "serve": "node dist/server.js",
+    "start": "yarn build && yarn serve",
     "test": "jest"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
     "restify": "^7.3.0",
     "roarr": "^2.11.9"
   },
@@ -31,6 +34,7 @@
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.8",
-    "regenerator-runtime": "^0.13.1"
+    "regenerator-runtime": "^0.13.1",
+    "rimraf": "^2.6.3"
   }
 }

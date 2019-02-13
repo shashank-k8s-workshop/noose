@@ -1,28 +1,29 @@
 import "@babel/polyfill";
 import restify from 'restify';
+import koose from './kooseFacade';
 import log from './logger';
+import pjson from '../package.json'
+import config from './config';
 
-const service = 'ninky';
-const version = process.env.npm_package_version;
-const port = process.env.PORT || 8080;
+const service = pjson.name;
+const version = pjson.version;
 
-const ping = async (req, res, next) => {
-    log({resource: 'ping'}, 'invoked')
-    await doSomething(500);
-    res.send({
-        service,
-        version,
-        res: 'pong'
-    })
-    next()
-}
-
-const doSomething = (ms) => {
-    return new Promise(res => {
-        setTimeout(res, ms)
-    })
+const noo = async (req, res, next) => {
+    log({ resource: 'noo' }, 'api invoked')
+    try {
+        const kooRes = await koose.koo();
+        res.send({
+            service,
+            version,
+            res: [kooRes]
+        })
+    } catch (err) {
+        log.error({ resource: 'noo', error: err.message }, 'error happened while calling koo')
+        res.send(500, { message: 'koose returned error', code: 'kooseError' })
+    }
+    next();
 }
 
 const server = restify.createServer();
-server.get('/ping', ping);
-server.listen(port, () => {});
+server.get('/noo', noo);
+server.listen(config.port, () => { });
