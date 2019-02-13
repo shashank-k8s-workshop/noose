@@ -9,7 +9,7 @@ const service = pjson.name;
 const version = pjson.version;
 
 const noo = async (req, res, next) => {
-    log({ resource: 'noo' }, 'api invoked')
+    log.info({ resource: 'noo' }, 'api invoked')
     try {
         const kooRes = await koose.koo();
         res.send({
