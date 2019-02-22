@@ -24,4 +24,5 @@ WORKDIR /usr/src/app
 COPY --from=base /usr/src/app/package.json ./package.json
 COPY --from=dependencies /usr/src/prod_node_modules  ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
+
 CMD ["dist/server.js"]

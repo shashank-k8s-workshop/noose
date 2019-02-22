@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+  goose:
+    container_name: dcn-k8s-goose
+    image: k8s-goose
+    environment:
+      - PORT=8080
+
+  koose:
+    container_name: dcn-k8s-koose
+    image: k8s-koose
+    depends_on:
+      - goose
+    environment:
+      - SERVER_PORT=8080
+      - SERVICE_GOOSE_URL=http://goose:8080
+
+  noose:
+    build:
+      context: .
+    container_name: dcn-k8s-noose
+    image: k8s-noose
+    depends_on:
+      - koose
+    ports:
+      - 8081:8080
+    environment:
+      - PORT=8080
+      - KOOSE_URL=http://koose:8080
+      - ROARR_LOG=true
