@@ -24,6 +24,12 @@ const noo = async (req, res, next) => {
     next();
 }
 
+const healthCheck = async (req, res, next) => {
+    res.send("healthy")
+    next();
+}
+
 const server = restify.createServer();
 server.get('/noo', noo);
+server.get('/health-check', healthCheck);
 server.listen(config.port, () => { });
