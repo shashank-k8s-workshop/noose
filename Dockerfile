@@ -24,5 +24,6 @@ WORKDIR /usr/src/app
 COPY --from=base /usr/src/app/package.json ./package.json
 COPY --from=dependencies /usr/src/prod_node_modules  ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/aws-xray-sampling-rules.json ./
 
 CMD ["dist/server.js"]

@@ -1,3 +1,11 @@
+import http from 'http'
+import https from 'https'
+import AWSXRay from 'aws-xray-sdk';
+
+AWSXRay.captureHTTPsGlobal(http);
+AWSXRay.captureHTTPsGlobal(https);
+AWSXRay.capturePromise();
+
 import rp from 'request-promise-native';
 import config from './config';
 import log from './logger';

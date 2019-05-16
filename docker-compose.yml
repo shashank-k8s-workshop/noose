@@ -19,7 +19,7 @@ services:
     build:
       context: .
     container_name: dcn-k8s-noose
-    image: k8s-noose
+    image: k8s-noose:xray
     depends_on:
       - koose
     ports:
@@ -28,3 +28,4 @@ services:
       - PORT=8080
       - KOOSE_URL=http://koose:8080
       - ROARR_LOG=true
+      - AWS_XRAY_DEBUG_MODE=TRUE
