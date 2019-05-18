@@ -1,6 +1,6 @@
 {
   "name": "noose",
-  "version": "0.1.0",
+  "version": "xray-v0.1.0",
   "description": "A nodejs service for k8s workshop",
   "main": "server.js",
   "repository": "git@github.com:shashanktomar/noose.git",

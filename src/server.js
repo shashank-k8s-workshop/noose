@@ -61,4 +61,4 @@ server.get('/noo', noo);
 server.get('/health-check', healthCheck);
 server.listen(config.port, () => { });
 
-AWSXRayRestify.enable(server, 'Noose');
+AWSXRayRestify.enable(server, 'Noose-' + version);
